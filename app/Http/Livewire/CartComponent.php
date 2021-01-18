@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Producto;
 use Cart;
 
 class CartComponent extends Component
@@ -32,6 +33,9 @@ class CartComponent extends Component
 
     public function render()
     {
-        return view('livewire.cart-component')->layout('layouts.base');
+        $popular_products = Producto::orderBy('created_at', 'DESC')->limit(8)->get();
+        return view('livewire.cart-component', [
+            'popular_products' => $popular_products
+        ])->layout('layouts.base');
     }
 }

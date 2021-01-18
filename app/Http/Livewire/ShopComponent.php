@@ -39,8 +39,13 @@ class ShopComponent extends Component
         }
 
         $categories = Category::all();
+        $popular_products = Producto::inRandomOrder()->limit(4)->get();
 
-        return view('livewire.shop-component', ['products' => $products, 'categories'=>$categories])->layout('layouts.base');
+        return view('livewire.shop-component', [
+            'products' => $products,
+            'categories'=>$categories,
+            'popular_products' => $popular_products
+        ])->layout('layouts.base');
     }
 
 }
