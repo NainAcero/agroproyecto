@@ -19,6 +19,9 @@
                 @if(Cart::count() > 0)
                     <h3 class="box-title">Products Name</h3>
                     <ul class="products-cart">
+                        <a href="#" >
+
+                        </a>
                         @foreach(Cart::content() as $item)
                             <li class="pr-cart-item">
                                 <div class="product-image">
@@ -37,9 +40,10 @@
                                 </div>
                                 <div class="price-field sub-total"><p class="price">${{ $item->subtotal }}</p></div>
                                 <div class="delete">
-                                    <a href="#" wire:click.prevent="destroy('{{ $item->rowId }}')" class="btn btn-delete" title="">
-                                        <span>Delete from your cart</span>
-                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                    <a href="#"  wire:click="$emit('triggerDelete', '{{ $item->rowId }}' )" >
+                                        <span class="ua-icon-alert-close text-danger" style="font-size:30px">
+                                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                        </span>
                                     </a>
                                 </div>
                             </li>
@@ -56,13 +60,21 @@
                     <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{Cart::subtotal()}}</b></p>
                     <p class="summary-info"><span class="title">Tax</span><b class="index">${{Cart::tax()}}</b></p>
                     <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
-                    <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{Cart::total()}}</b></p>
+                    <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{ $total }}</b></p>
+
                 </div>
                 <div class="checkout-info">
                     <label class="checkbox-field">
-                        <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
+                        <input class="frm-input" name="have-code" id="have-code" wire:click="$emit('have-code', 1)" type="checkbox"><span>I have promo code</span>
                     </label>
-                    <a class="btn btn-checkout" href="checkout.html">Check out</a>
+                    <fieldset class="wrap-input" >
+                        <br>
+                        <input type="text" id="hidden" class="form-control" style="display:none" name="code"  wire:keydown.enter="$emit('code-submit', 1)" placeholder="Code*" autofocus="">
+
+                        <small id="emailHelp" id="mensaje" style="display:none" class="form-text text-danger text-muted"><b>Código Incorrecto</b></small>
+                    </fieldset>
+
+                    <a class="btn btn-checkout" href="#">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="update-clear">
@@ -102,3 +114,41 @@
     </div><!--end container-->
 
 </main>
+
+@push('scripts')
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var show = document.getElementById('have-code');
+        var hidden = document.getElementById('hidden');
+
+        @this.on('triggerDelete', orderId => {
+           Swal.fire({
+                title: 'Estas seguro de eliminarlo?',
+                showDenyButton: false,
+                showCancelButton: true,
+                denyButtonText: `No Resetear`,
+                confirmButtonText: 'Delete!'
+            }).then((result) => {
+                if (result.value) {
+                    @this.call('destroy',orderId)
+                    responseAlert({title: session('message'), type: 'success'});
+
+                } else {
+                    responseAlert({
+                        title: 'Operation Cancelled!',
+                        type: 'success'
+                    });
+                }
+            });
+        });
+
+        @this.on('have-code', data => hidden.style.display = (show.checked)? 'inline' : 'none' );
+
+        @this.on('code-submit', data => {
+            @this.call('code_discount',hidden.value)
+        });
+
+    })
+</script>
+@endpush

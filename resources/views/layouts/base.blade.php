@@ -18,6 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-03.css') }}">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     @livewireStyles
 
 </head>
@@ -469,5 +471,8 @@
 	<script src="{{ asset('assets/js/functions.js') }}"></script>
 
     @livewireScripts
+
+    @stack('scripts')
+</script>
 </body>
 </html>
