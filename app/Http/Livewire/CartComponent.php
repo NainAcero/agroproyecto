@@ -44,10 +44,21 @@ class CartComponent extends Component
 
     public function code_discount($value){
         $discount = Discount::where('ticket', $value)->first();
-        $this->total = ($discount->type == "money")?
-            $this->total - $discount->discount:
-            $this->total - $this->total * $discount->discount / 100;
-        session()->flash('success_message', 'A discount has been applied');
+        if($discount != null){
+            if($discount->quantity > 0){
+                $this->total = ($discount->type == "money")?
+                    number_formt($this->total)  - (double)$discount->discount:
+                    number_formt($this->total) - number_formt($this->total)*(double)($discount->discount / 100);
+                session()->flash('success_message', 'A discount has been applied');
+                $discount->quantity = $discount->quantity - 1;
+                $discount->save();
+            }else{
+                session()->flash('error_message', 'Cupon agotado');
+            }
+
+        }else{
+            session()->flash('error_message', 'Cupon no válido');
+        }
     }
 
     public function render()
@@ -58,4 +69,9 @@ class CartComponent extends Component
             'total' => $this->total
         ])->layout('layouts.base');
     }
+}
+
+
+function number_formt($number){
+    return (double)floatval(str_replace(',','',$number));
 }

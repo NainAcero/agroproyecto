@@ -15,6 +15,10 @@
                     <div class="alert alert-success">
                         <strong>Success</strong> {{Session::get('success_message')}}
                     </div>
+                @elseif(Session::has('error_message'))
+                    <div class="alert alert-danger">
+                        <strong>Error</strong> {{Session::get('error_message')}}
+                    </div>
                 @endif
                 @if(Cart::count() > 0)
                     <h3 class="box-title">Products Name</h3>
