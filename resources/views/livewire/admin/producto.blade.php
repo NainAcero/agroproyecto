@@ -12,7 +12,7 @@
         </div>
 
         <div class="form-outline mb-4">
-            <input type="search" class="form-control" id="buscar" placeholder="BUSCAR..." onkeypress="myFunction()">
+            <input type="search" class="form-control" id="buscar" placeholder="BUSCAR...">
             <br>
         </div>
         <div class="alert alert-success" id="alerta">
