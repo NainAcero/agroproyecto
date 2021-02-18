@@ -18,6 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-03.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/882059baa9.js" crossorigin="anonymous"></script>
+
 </head>
 <body class="home-page home-01 ">
 
@@ -82,6 +84,9 @@
                                                     </li>
                                                     <li class="menu-item" >
                                                         <a title="Productos" href="{{ route('admin.producto') }}">Producto</a>
+                                                    </li>
+                                                    <li class="menu-item" >
+                                                        <a title="Productos" href="{{ route('admin.proveedor') }}">Proveedor</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>

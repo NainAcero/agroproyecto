@@ -16,7 +16,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('livewire.admin.categoria');
+        $categories = Category::all();
+        return view('livewire.admin.categoria', ["categories" => $categories]);
     }
 
     /**
