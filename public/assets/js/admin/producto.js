@@ -154,6 +154,7 @@ function ajaxDestroyProducto(data){
 
 
 function ajaxGet(data){
+    console.log(data);
     alerta.style.display = "none";
     var html = "";
     var pag = "";
