@@ -37,9 +37,9 @@
                     @else
                         <td>{{ $factura->historial->descuento }}</td>
                         <td>{{ $factura->historial->type }}</td>
-                        <td>{{ $factura->created_at }}</td>
                     @endif
 
+                    <td>{{ $factura->created_at }}</td>
                     <td>
                         <a href="{{ route('factura.show', [ "id" => $factura->id]) }}" class="btn btn-success"><i class="fas fa-eye"></i></a>
                     </td>
