@@ -20,6 +20,7 @@
                     <th scope="col">Total</th>
                     <th scope="col">Descuento</th>
                     <th scope="col">Tipo Descuento</th>
+                    <th scope="col">Fecha</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                     @else
                         <td>{{ $factura->historial->descuento }}</td>
                         <td>{{ $factura->historial->type }}</td>
+                        <td>{{ $factura->created_at }}</td>
                     @endif
 
                     <td>
