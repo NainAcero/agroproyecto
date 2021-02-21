@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\FacturaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,12 @@ Route::get('/search', SearchComponent::class)->name('product.search');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/paypal/pay', [PaymentController::class, "payWithPayPal"]);
+    Route::get('/paypal/status', [PaymentController::class, "payPalStatus"]);
+
+    Route::get('/factura', [FacturaController::class, "index"])->name('factura.index');
+    Route::get('/factura/show/{id}', [FacturaController::class, "show"])->name('factura.show');
+
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function(){
@@ -55,15 +63,23 @@ Route::middleware(['auth:sanctum', 'verified', 'authAdmin'])->group(function(){
     Route::post('/admin/producto/store', [ProductoController::class, "store"])->name('producto.store');
     Route::get('/admin/producto/edit/{id}', [ProductoController::class, "edit"])->name('admin.producto.edit');
     Route::get('/admin/producto/destroy/{id}', [ProductoController::class, "destroy"])->name('admin.producto.destroy');
-    Route::get('/admin/producto/show/{sdk}', [ProductoController::class, "show"])->name('admin.producto.show');
+    Route::get('/admin/producto/show/{nombre}', [ProductoController::class, "show"])->name('admin.producto.show');
+    Route::get('/admin/producto/all/{nombre}', [ProductoController::class, "all"])->name('admin.producto.all');
 
     Route::get('/admin/categoria', [CategoriaController::class, "index"])->name('admin.categoria');
+    Route::get('/admin/categoria/ajax/{skip}', [CategoriaController::class, "ajax"])->name('categoria.ajax');
     Route::post('/admin/categoria/store', [CategoriaController::class, "store"])->name('categoria.store');
+    Route::get('/admin/categoria/edit/{id}', [CategoriaController::class, "edit"])->name('admin.categoria.edit');
+    Route::get('/admin/categoria/destroy/{id}', [CategoriaController::class, "destroy"])->name('admin.categoria.destroy');
+    Route::get('/admin/categoria/show/{nombre}', [CategoriaController::class, "show"])->name('admin.categoria.show');
+    Route::get('/admin/categoria/all/{nombre}', [CategoriaController::class, "all"])->name('admin.categoria.all');
 
     Route::get('/admin/proveedor', [ProveedorController::class, "index"])->name('admin.proveedor');
     Route::get('/admin/proveedor/ajax/{skip}', [ProveedorController::class, "ajax"])->name('admin.proveedor.ajax');
     Route::get('/admin/proveedor/edit/{ruc}', [ProveedorController::class, "edit"])->name('admin.proveedor.edit');
     Route::get('/admin/proveedor/destroy/{ruc}', [ProveedorController::class, "destroy"])->name('admin.proveedor.destroy');
     Route::post('/admin/proveedor/store', [ProveedorController::class, "store"])->name('proveedor.store');
+    Route::get('/admin/proveedor/show/{nombre}', [ProveedorController::class, "show"])->name('admin.proveedor.show');
+    Route::get('/admin/proveedor/all/{nombre}', [ProveedorController::class, "all"])->name('admin.proveedor.all');
 
 });

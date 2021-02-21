@@ -78,7 +78,7 @@
                         <small id="emailHelp" id="mensaje" style="display:none" class="form-text text-danger text-muted"><b>Código Incorrecto</b></small>
                     </fieldset>
 
-                    <a class="btn btn-checkout" href="#">Check out</a>
+                    <a class="btn btn-checkout" href="{{ route('user.dashboard') }}">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="update-clear">

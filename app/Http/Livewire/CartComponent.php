@@ -4,11 +4,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Producto;
+use App\Models\Historial;
 use App\Models\Discount;
 use Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartComponent extends Component
 {
+
     public $total;
 
     public function mount(){
@@ -49,6 +52,13 @@ class CartComponent extends Component
                 $this->total = ($discount->type == "money")?
                     number_formt($this->total)  - (double)$discount->discount:
                     number_formt($this->total) - number_formt($this->total)*(double)($discount->discount / 100);
+
+                Historial::create([
+                    "ticket" => $discount->ticket,
+                    "descuento" => $discount->discount,
+                    "type" => $discount->type,
+                    "user_id" => Auth::user()->id,
+                ]);
                 session()->flash('success_message', 'A discount has been applied');
                 $discount->quantity = $discount->quantity - 1;
                 $discount->save();

@@ -12,7 +12,10 @@
         </div>
 
         <div class="form-outline mb-4">
-            <input type="search" id="buscar" class="form-control" placeholder="BUSCAR...">
+            <input list="encodings" type="search" id="buscar" class="form-control" placeholder="BUSCAR...">
+            <datalist id="encodings">
+
+            </datalist>
             <br>
         </div>
         <div class="alert alert-success" id="alerta">
@@ -108,9 +111,7 @@
 </main>
 
 @push('scripts')
-
     <script src="{{ asset('assets/js/admin/proveedor.js') }}"></script>
-
 @endpush
 
 </x-guest-layout>

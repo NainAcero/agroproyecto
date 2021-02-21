@@ -77,6 +77,7 @@ class ProductoController extends Controller
                 $producto->regular_price = $request->regular_price;
                 $producto->short_description = $request->short_description;
                 $producto->quantity = $request->quantity;
+                $producto->slug = Str::slug($request->name);
                 $producto->category_id = $request->category_id;
                 $producto->save();
 
@@ -117,15 +118,30 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($sdk)
+    public function show($nombre)
     {
-        $producto = Producto::where('SKU', $sdk)->first();
+        $productos = DB::table('productos')->where('name', 'like', '%'. $nombre .'%')->first();
         $categories = Category::all();
         return response()->json([
-            'data' => $producto->toArray(),
+            'data' => $productos,
             'categories' => $categories->toArray()
         ], 201);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function all($nombre)
+    {
+        $productos = DB::table('productos')->where('name', 'like', '%'. $nombre .'%')->get();
+        return response()->json([
+            'data' => $productos
+        ], 201);
+    }
+
 
     /**
      * Show the form for editing the specified resource.

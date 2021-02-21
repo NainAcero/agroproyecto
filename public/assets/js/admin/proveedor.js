@@ -10,6 +10,7 @@ const pnombre = document.getElementById("pnombre");
 const padress = document.getElementById("padress");
 const ptelefono = document.getElementById("ptelefono");
 const pid = document.getElementById("pid");
+const encodings = document.getElementById("encodings");
 
 var skip = 0;
 
@@ -23,8 +24,11 @@ $(function () {
     const url = `/admin/proveedor/ajax/${skip}`;
     $.getJSON(url, ajaxGet);
 
+    let timeout;
+
     buscar.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
+            encodings.innerHTML = "";
             pruc.value = null;
             pnombre.value = null;
             padress.value = null;
@@ -35,7 +39,7 @@ $(function () {
             table_proveedor.style.display="none";
             error_body.innerHTML = "";
             formulario_proveedor.style.display="block";
-            const url = `/admin/proveedor/edit/${buscar.value}`;
+            const url = `/admin/proveedor/show/${buscar.value}`;
             $.getJSON(url, ajaxGetProveedor);
         }else if(buscar.value == ""){
             table_proveedor.style.display="block";
@@ -43,6 +47,12 @@ $(function () {
             error_body.innerHTML = "";
             const url = `/admin/proveedor/ajax/${skip}`;
             $.getJSON(url, ajaxGet);
+        }else{
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const url = `/admin/proveedor/all/${buscar.value}`;
+                $.getJSON(url, ajaxGetAll);
+            },1000)
         }
       });
 
@@ -138,6 +148,7 @@ function back(){
     table_proveedor.style.display="block";
     formulario_proveedor.style.display="none";
     error_body.innerHTML = "";
+    this.buscar.value = null;
 
     changepage(1);
 }
@@ -198,4 +209,14 @@ function ajaxGetProveedor(data){
         pid.value = data.data.id;
     }
 
+}
+
+function ajaxGetAll(data){
+    var html = "";
+    if(data.data.length > 0){
+        data.data.forEach(element => {
+            html += `<option value="${element.nombre}">`;
+        });
+    }
+    encodings.innerHTML = html;
 }

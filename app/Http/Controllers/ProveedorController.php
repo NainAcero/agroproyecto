@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Proveedor;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class ProveedorController extends Controller
 {
@@ -94,9 +95,26 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nombre)
     {
-        //
+        $proveedor = DB::table('proveedors')->where('nombre', 'like', '%'. $nombre .'%')->first();
+        return response()->json([
+            'data' => $proveedor
+        ], 201);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function all($nombre)
+    {
+        $proveedors = DB::table('proveedors')->where('nombre', 'like', '%'. $nombre .'%')->get();
+        return response()->json([
+            'data' => $proveedors
+        ], 201);
     }
 
     /**

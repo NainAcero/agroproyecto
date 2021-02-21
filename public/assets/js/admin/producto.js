@@ -13,6 +13,7 @@ const pshu = document.getElementById("pshu");
 const pquantity = document.getElementById("pquantity");
 const category_id = document.getElementById("category_id");
 const id = document.getElementById("id");
+const encodings = document.getElementById("encodings");
 
 var skip = 0;
 
@@ -27,8 +28,11 @@ $(function () {
     const url = `/admin/producto/ajax/${skip}`;
     $.getJSON(url, ajaxGet);
 
+    let timeout;
+
     buscar.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
+            encodings.innerHTML = "";
             pname.value = null;
             pprecio.value =  null;
             pdescription.value =  null;
@@ -47,8 +51,15 @@ $(function () {
         }else if(buscar.value == ""){
             table_producto.style.display="block";
             formulario_producto.style.display="none";
+            error_body.innerHTML = "";
             const url = `/admin/producto/ajax/${skip}`;
             $.getJSON(url, ajaxGet);
+        }else{
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const url = `/admin/producto/all/${buscar.value}`;
+                $.getJSON(url, ajaxGetAll);
+            },1000)
         }
       });
 
@@ -117,6 +128,7 @@ function back(){
     pquantity.value =  null;
     pid.value = null;
     error_body.innerHTML = "";
+    this.buscar.value = null;
 
     table_producto.style.display="block";
     formulario_producto.style.display="none";
@@ -149,12 +161,11 @@ function deleteP(id){
 }
 
 function ajaxDestroyProducto(data){
-    console.log(data);
+    // console.log(data);
 }
 
 
 function ajaxGet(data){
-    console.log(data);
     alerta.style.display = "none";
     var html = "";
     var pag = "";
@@ -223,4 +234,14 @@ function ajaxGetProducto(data){
         pid.value = data.data.id;
     }
 
+}
+
+function ajaxGetAll(data){
+    var html = "";
+    if(data.data.length > 0){
+        data.data.forEach(element => {
+            html += `<option value="${element.name}">`;
+        });
+    }
+    encodings.innerHTML = html;
 }
