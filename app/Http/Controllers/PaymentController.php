@@ -14,9 +14,11 @@ use PayPal\Api\Transaction;
 use PayPal\Api\PaymentExecution;
 use App\Models\Historial;
 use App\Models\Factura;
+use App\Models\Producto;
 use App\Models\DetalleFactura;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+
 
 class PaymentController extends Controller
 {
@@ -131,6 +133,7 @@ class PaymentController extends Controller
             ]);
 
             foreach(Cart::content() as $item){
+
                 DetalleFactura::create([
                     "precio" => $item->model->regular_price,
                     "cantidad" => $item->qty,
@@ -139,6 +142,10 @@ class PaymentController extends Controller
                     "user_id" => Auth::user()->id,
                     "factura_id" => $factura->id
                 ]);
+
+                $producto = Producto::where('id', $item->model->id)->first();
+                $producto->quantity = $producto->quantity - $item->qty;
+                $producto->save();
 
             }
             Cart::destroy();

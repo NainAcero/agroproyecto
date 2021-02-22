@@ -5,10 +5,17 @@
     <div class="container">
 
         <div class="wrap-breadcrumb">
-            <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span><a href="/factura" class="link">Facturas</a></span></li>
-            </ul>
+            @if(Auth::user()->utype == "ADM")
+                <ul>
+                    <li class="item-link"><a href="#" class="link">home</a></li>
+                    <li class="item-link"><span><a href="/admin/dashboard" class="link">Facturas</a></span></li>
+                </ul>
+            @else
+                <ul>
+                    <li class="item-link"><a href="#" class="link">home</a></li>
+                    <li class="item-link"><span><a href="/factura" class="link">Facturas</a></span></li>
+                </ul>
+            @endif
         </div>
 
 
@@ -17,9 +24,9 @@
              <div class="card-body">
                 <ul class="list-group my-2">
                     <li class="list-group-item list-group-item-primary primary " style="background-color: #EEEFF0"><b>Datos del Cliente</b></li>
-                    <li class="list-group-item"><b>Usuario: </b>{{ Auth::user()->name }}</li>
-                    <li class="list-group-item"><b>Email: </b>{{ Auth::user()->email }}</li>
-                    <li class="list-group-item"><b>Creación cuenta: </b>{{ Auth::user()->created_at }}</li>
+                    <li class="list-group-item"><b>Usuario: </b>{{ $factura->user->name }}</li>
+                    <li class="list-group-item"><b>Email: </b>{{ $factura->user->email }}</li>
+                    <li class="list-group-item"><b>Creación cuenta: </b>{{ $factura->user->created_at }}</li>
                 </ul>
             </div>
 
