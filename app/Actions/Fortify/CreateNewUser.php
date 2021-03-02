@@ -33,4 +33,22 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
     }
+
+    public function login(array $input){
+        Validator::make($input, [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => $this->passwordRules(),
+        ])->validate();
+
+        $user = User::where('email', $input->email);
+
+        if(password_verify($user->password, $input->password)){
+            return true;
+
+            session_start();
+            $_SESSION['name'] = $user->name;
+        }
+
+        return false;
+    }
 }

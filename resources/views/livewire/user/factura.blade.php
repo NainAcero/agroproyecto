@@ -2,6 +2,7 @@
 
 <main id="main" class="main-site">
 
+
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -10,7 +11,6 @@
                 <li class="item-link"><span><a href="/facturas" class="link">Facturas</a></span></li>
             </ul>
         </div>
-
         <table class="table">
             <thead class="thead-dark">
                 <tr>
