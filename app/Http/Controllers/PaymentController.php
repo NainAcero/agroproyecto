@@ -50,7 +50,7 @@ class PaymentController extends Controller
         }
 
         if($total == 0){
-            $status = 'Realize una compra!. gracias.';
+            $status = 'Carrito vacío. Ingrese productos gracias!';
             return redirect('/user/dashboard')->with(compact('status'));
         }
 
