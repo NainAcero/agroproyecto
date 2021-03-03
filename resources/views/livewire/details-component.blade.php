@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="/" class="link">home</a></li>
-                <li class="item-link"><span>detail</span></li>
+                <li class="item-link"><a href="/" class="link">Inicio</a></li>
+                <li class="item-link"><span>Detalle Producto</span></li>
             </ul>
         </div>
         <div class="row">
@@ -57,10 +57,7 @@
                         </div>
                         <div class="wrap-butons">
                             <a href="#" class="btn add-to-cart" wire:click="$emit('store', '{{ $product->id }}' )">Add to Cart</a>
-                            <div class="wrap-btn">
-                                <a href="#" class="btn btn-compare">Add Compare</a>
-                                <a href="#" class="btn btn-wishlist">Add Wishlist</a>
-                            </div>
+
                         </div>
                     </div>
                     <div class="advance-info">
@@ -86,10 +83,9 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Free Shipping</b>
-                                        <span class="subtitle">On Oder Over $99</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                    </div>
+                                        <b class="title">Envío gratis</b>
+                                        <span class="subtitle">En o más de $ 99</span>
+                                   </div>
                                 </a>
                             </li>
 
@@ -97,9 +93,8 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-gift" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Special Offer</b>
-                                        <span class="subtitle">Get a gift!</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Oferta especial</b>
+                                        <span class="subtitle">¡Recibe un regalo!</span>
                                     </div>
                                 </a>
                             </li>
@@ -108,9 +103,8 @@
                                 <a class="link-to-service" href="#">
                                     <i class="fa fa-reply" aria-hidden="true"></i>
                                     <div class="right-content">
-                                        <b class="title">Order Return</b>
-                                        <span class="subtitle">Return within 7 days</span>
-                                        <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                        <b class="title">Devolución de pedido</b>
+                                        <span class="subtitle">Devolución en 7 días</span>
                                     </div>
                                 </a>
                             </li>
@@ -119,7 +113,7 @@
                 </div><!-- Categories widget-->
 
                 <div class="widget mercado-widget widget-product">
-                    <h2 class="widget-title">Popular Products</h2>
+                    <h2 class="widget-title">PRODUCTOS RELACIONADOS</h2>
                     <div class="widget-content">
                         <ul class="products">
 
