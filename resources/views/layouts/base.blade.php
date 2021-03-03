@@ -153,16 +153,16 @@
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/about" class="link-term mercado-item-title">About Us</a>
+									<a href="/about" class="link-term mercado-item-title">Sobre nosotros</a>
 								</li>
 								<li class="menu-item">
-									<a href="/shop" class="link-term mercado-item-title" >Shop</a>
+									<a href="/shop" class="link-term mercado-item-title" >Tienda</a>
 								</li>
 								<li class="menu-item">
-									<a href="/cart" class="link-term mercado-item-title">Cart</a>
+									<a href="/cart" class="link-term mercado-item-title">Carrito</a>
 								</li>
 								<li class="menu-item">
-									<a href="/contact" class="link-term mercado-item-title">Contact Us</a>
+									<a href="/contact" class="link-term mercado-item-title">Contactos</a>
 								</li>
 							</ul>
 						</div>
