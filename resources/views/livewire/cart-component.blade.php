@@ -54,41 +54,40 @@
                         @endforeach
                     </ul>
                 @else
-                    <p>No item in cart</p>
+                    <p>Ningún artículo en el carrito</p>
                 @endif
             </div>
 
             <div class="summary">
                 <div class="order-summary">
-                    <h4 class="title-box">Order Summary</h4>
+                    <h4 class="title-box">RESUMEN DEL PEDIDO</h4>
                     <p class="summary-info"><span class="title">Subtotal</span><b class="index">${{Cart::subtotal()}}</b></p>
-                    <p class="summary-info"><span class="title">Tax</span><b class="index">${{Cart::tax()}}</b></p>
-                    <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
+                    <p class="summary-info"><span class="title">Impuesto</span><b class="index">${{Cart::tax()}}</b></p>
+                    <p class="summary-info"><span class="title">Transporte</span><b class="index">Envío gratis</b></p>
                     <p class="summary-info total-info "><span class="title">Total</span><b class="index">${{ $total }}</b></p>
 
                 </div>
                 <div class="checkout-info">
                     <label class="checkbox-field">
-                        <input class="frm-input" name="have-code" id="have-code" wire:click="$emit('have-code', 1)" type="checkbox"><span>I have promo code</span>
+                        <input class="frm-input" name="have-code" id="have-code" wire:click="$emit('have-code', 1)" type="checkbox"><span>Tengo un código promocional</span>
                     </label>
                     <fieldset class="wrap-input" >
                         <br>
-                        <input type="text" id="hidden" class="form-control" style="display:none" name="code"  wire:keydown.enter="$emit('code-submit', 1)" placeholder="Code*" autofocus="">
+                        <input type="text" id="hidden" class="form-control" style="display:none" name="code"  wire:keydown.enter="$emit('code-submit', 1)" placeholder="Código*" autofocus="">
 
                         <small id="emailHelp" id="mensaje" style="display:none" class="form-text text-danger text-muted"><b>Código Incorrecto</b></small>
                     </fieldset>
 
                     <a class="btn btn-checkout" href="{{ route('user.dashboard') }}">COMPRAR AHORA</a>
-                    <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                    <a class="link-to-shop" href="shop.html">Continuar Comprando<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="update-clear">
-                    <a class="btn btn-clear" wire:click.prevent="destroyAll()" href="#">Clear Shopping Cart</a>
-                    <a class="btn btn-update" href="#">Update Shopping Cart</a>
+                    <a class="btn btn-clear"  wire:click.prevent="destroyAll()" href="#">Eliminar Productos</a>
                 </div>
             </div>
 
             <div class="wrap-show-advance-info-box style-1 box-in-site">
-                <h3 class="title-box">Most Viewed Products</h3>
+                <h3 class="title-box">Productos más vistos</h3>
                 <div class="wrap-products">
                     <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
                         @foreach($popular_products as $p_product)
@@ -101,11 +100,11 @@
                                         <span class="flash-item new-label">new</span>
                                     </div>
                                     <div class="wrap-btn">
-                                        <a href="#" class="function-link">quick view</a>
+                                        <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}" class="function-link">{{ $p_product->name }}</a>
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <a src="{{ asset('assets/images/products') }}/{{ $p_product->image }}" class="product-name"><span>{{ $p_product->name }}</span></a>
+                                    <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}" class="product-name"><span>{{ $p_product->name }}</span></a>
                                     <div class="wrap-price"><span class="product-price">${{ $p_product->regular_price }}</span></div>
                                 </div>
                             </div>

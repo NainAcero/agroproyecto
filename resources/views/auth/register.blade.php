@@ -6,8 +6,8 @@
 
             <div class="wrap-breadcrumb">
                 <ul>
-                    <li class="item-link"><a href="/" class="link">home</a></li>
-                    <li class="item-link"><span>Register</span></li>
+                    <li class="item-link"><a href="/" class="link">Inicio</a></li>
+                    <li class="item-link"><span>Registro</span></li>
                 </ul>
             </div>
             <div class="row">
@@ -19,8 +19,8 @@
                                 <form class="form-stl" name="frm-login" method="POST" action="{{ route('register') }}" >
                                     @csrf
                                     <fieldset class="wrap-title">
-                                        <h3 class="form-title">Create an account</h3>
-                                        <h4 class="form-subtitle">Personal infomation</h4>
+                                        <h3 class="form-title">CREA UNA CUENTA</h3>
+                                        <h4 class="form-subtitle">Información personal</h4>
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-reg-lname">{{ __('Name') }}*</label>
@@ -31,7 +31,7 @@
                                         <input type="email" id="email" name="email" placeholder="Email address" :value="old('email')" required>
                                     </fieldset>
                                     <fieldset class="wrap-title">
-                                        <h3 class="form-title">Login Information</h3>
+                                        <h3 class="form-title">Información Login</h3>
                                     </fieldset>
                                     <fieldset class="wrap-input item-width-in-half left-item ">
                                         <label for="frm-reg-pass">{{ __('Password') }} *</label>

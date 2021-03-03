@@ -6,8 +6,8 @@
 
             <div class="wrap-breadcrumb">
                 <ul>
-                    <li class="item-link"><a href="/" class="link">home</a></li>
-                    <li class="item-link"><span>login</span></li>
+                    <li class="item-link"><a href="/" class="link">Inicio</a></li>
+                    <li class="item-link"><span>Login</span></li>
                 </ul>
             </div>
             <div class="row">
@@ -19,7 +19,7 @@
                                 <form name="frm-login" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <fieldset class="wrap-title">
-                                        <h3 class="form-title">Log in to your account</h3>
+                                        <h3 class="form-title">INGRESE A SU CUENTA</h3>
                                     </fieldset>
                                     <fieldset class="wrap-input">
                                         <label for="frm-login-uname">{{ __('Email') }}</label>
@@ -32,9 +32,9 @@
 
                                     <fieldset class="wrap-input">
                                         <label class="remember-field">
-                                            <input class="frm-input " name="remember_me" id="rememberme" value="forever" type="checkbox"><span>{{ __('Remember me') }}</span>
+                                            <input class="frm-input " name="remember_me" id="rememberme" value="forever" type="checkbox"><span>{{ __('Recuérdame') }}</span>
                                         </label>
-                                        <a class="link-function left-position"  href="{{ route('password.request') }}" title="Forgotten password?">{{ __('Forgot your password?') }}</a>
+                                        <a class="link-function left-position"  href="{{ route('password.request') }}" title="Forgotten password?">{{ __('¿Olvidaste tu contraseña?') }}</a>
                                     </fieldset>
                                     <input type="submit" class="btn btn-submit" value="Login" name="submit">
                                 </form>

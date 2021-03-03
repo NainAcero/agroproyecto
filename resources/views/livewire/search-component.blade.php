@@ -4,8 +4,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>Digital & Electronics</span></li>
+                <li class="item-link"><a href="#" class="link">Inicio</a></li>
+                <li class="item-link"><span>Tienda</span></li>
             </ul>
         </div>
         <div class="row">
@@ -14,35 +14,34 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">Digital & Electronics</h1>
+                    <h1 class="shop-title"></h1>
 
                     <div class="wrap-right">
 
                         <div class="sort-item orderby ">
                             <select name="orderby" class="use-chosen" wire:model="sorting">
-                                <option value="default" selected="selected">Default sorting</option>
-                                <option value="date">Sort by newness</option>
-                                <option value="price">Sort by price: low to high</option>
-                                <option value="price-desc">Sort by price: high to low</option>
+                                <option value="default" selected="selected">Clasificación por defecto</option>
+                                <option value="date">Ordenar por novedad</option>
+                                <option value="price">Ordenar por precio: de menor a mayor</option>
+                                <option value="price-desc">Ordenar por precio: de mayor a menor</option>
                             </select>
                         </div>
 
                         <div class="sort-item product-per-page" wire:model="pageSize">
                             <select name="post-per-page" class="use-chosen" >
-                                <option value="12" selected="selected">12 per page</option>
-                                <option value="16">16 per page</option>
-                                <option value="18">18 per page</option>
-                                <option value="21">21 per page</option>
-                                <option value="24">24 per page</option>
-                                <option value="30">30 per page</option>
-                                <option value="32">32 per page</option>
+                                <option value="12" selected="selected">12 por página</option>
+                                <option value="16">16 por página</option>
+                                <option value="18">18 por página</option>
+                                <option value="21">21 por página</option>
+                                <option value="24">24 por página</option>
+                                <option value="30">30 por página</option>
+                                <option value="32">32 por página</option>
                             </select>
                         </div>
 
                         <div class="change-display-mode">
                             <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                            <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                        </div>
+                         </div>
 
                     </div>
 
@@ -85,9 +84,9 @@
                 </div>
             </div><!--end main products area-->
 
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
                 <div class="widget mercado-widget categories-widget">
-                    <h2 class="widget-title">All Categories</h2>
+                    <h2 class="widget-title">CATEGORIAS</h2>
                     <div class="widget-content">
                         <ul class="list-category">
                             @foreach($categories as $category)
@@ -99,68 +98,8 @@
                     </div>
                 </div><!-- Categories widget-->
 
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <h2 class="widget-title">Brand</h2>
-                    <div class="widget-content">
-                        <ul class="list-style vertical-list list-limited" data-show="6">
-                            <li class="list-item"><a class="filter-link active" href="#">Fashion Clothings</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Laptop Batteries</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Printer & Ink</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                            <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                            <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div><!-- brand widget-->
-
-                <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Price</h2>
-                    <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <p>
-                            <label for="amount">Price:</label>
-                            <input type="text" id="amount" readonly>
-                            <button class="filter-submit">Filter</button>
-                        </p>
-                    </div>
-                </div><!-- Price-->
-
-                <div class="widget mercado-widget filter-widget">
-                    <h2 class="widget-title">Color</h2>
-                    <div class="widget-content">
-                        <ul class="list-style vertical-list has-count-index">
-                            <li class="list-item"><a class="filter-link " href="#">Red <span>(217)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Yellow <span>(179)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Black <span>(79)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Blue <span>(283)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Grey <span>(116)</span></a></li>
-                            <li class="list-item"><a class="filter-link " href="#">Pink <span>(29)</span></a></li>
-                        </ul>
-                    </div>
-                </div><!-- Color -->
-
-                <div class="widget mercado-widget filter-widget">
-                    <h2 class="widget-title">Size</h2>
-                    <div class="widget-content">
-                        <ul class="list-style inline-round ">
-                            <li class="list-item"><a class="filter-link active" href="#">s</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">M</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">l</a></li>
-                            <li class="list-item"><a class="filter-link " href="#">xl</a></li>
-                        </ul>
-                        <div class="widget-banner">
-                            <figure><img src="{{ asset('assets/images/size-banner-widget.jpg') }}" width="270" height="331" alt=""></figure>
-                        </div>
-                    </div>
-                </div><!-- Size -->
-
                 <div class="widget mercado-widget widget-product">
-                    <h2 class="widget-title">Popular Products</h2>
+                    <h2 class="widget-title">PRODUCTOS POPULARES</h2>
                     <div class="widget-content">
                         <ul class="products">
 
