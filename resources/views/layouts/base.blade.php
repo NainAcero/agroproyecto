@@ -55,7 +55,7 @@
                                     @auth
                                          @if(Auth::user()->utype === 'ADM')
                                             <li class="menu-item menu-item-has-children parent" >
-                                                <a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                                <a title="My Account" href="#">Mi cuenta ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                                 {{-- <a title="My Account" href="#">My Account ({{ $_SESSION['name'] }})<i class="fa fa-angle-down" aria-hidden="true"></i></a> --}}
 
                                                 <ul class="submenu curency" >
