@@ -15,7 +15,7 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::all();
+        $facturas = Factura::orderBy('created_at', 'DESC')->get();
         return view('livewire.user.factura', ["facturas" => $facturas]);
     }
 
