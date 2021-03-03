@@ -44,10 +44,10 @@
                         </div>
                         <div class="wrap-price"><span class="product-price">${{ $product->regular_price }}</span></div>
                         <div class="stock-info in-stock">
-                            <p class="availability">Availability: <b>{{ $product->stock_status }}</b></p>
+                            <p class="availability">Disponibilidad: <b>{{ $product->stock_status }}</b></p>
                         </div>
                         <div class="quantity">
-                            <span>Quantity:</span>
+                            <span>Cantidad:</span>
                             <div class="quantity-input">
                                 <input type="text" name="product-quatity" id="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
 
@@ -56,13 +56,13 @@
                             </div>
                         </div>
                         <div class="wrap-butons">
-                            <a href="#" class="btn add-to-cart" wire:click="$emit('store', '{{ $product->id }}' )">Add to Cart</a>
+                            <a href="#" class="btn add-to-cart" wire:click="$emit('store', '{{ $product->id }}' )">Agregar a Carrito</a>
 
                         </div>
                     </div>
                     <div class="advance-info">
                         <div class="tab-control normal">
-                            <a href="#description" class="tab-control-item active">description</a>
+                            <a href="#description" class="tab-control-item active">Descripción</a>
 
                         </div>
                         <div class="tab-contents">
@@ -143,7 +143,7 @@
 
             <div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="wrap-show-advance-info-box style-1 box-in-site">
-                    <h3 class="title-box">Related Products</h3>
+                    <h3 class="title-box">PRODUCTOS RELACIONADOS</h3>
                     <div class="wrap-products">
                         <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
                             @foreach($related_products as $r_product)
