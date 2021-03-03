@@ -8,20 +8,19 @@
 					<div class="item-slide">
 						<img src="{{ asset('https://argentina.agrofystatic.com/media/sliderhome/image/s/l/slides-enero-od-30-12-20-02.jpg?usewebp=true' ) }}" alt="" class="img-slide">
 						<div class="slide-info slide-2">
-							<h2 class="f-title">Extra 25% Off</h2>
-							<span class="f-subtitle" style="color: #fff">On online payments</span>
-							<p class="discount-code">Use Code: #FA6868</p>
-							<h4 class="s-title">Get Free</h4>
-							<p class="s-subtitle" style="color: #fff">TRansparent Bra Straps</p>
+							<h2 class="f-title">Extra 20% Off</h2>
+							<span class="f-subtitle" style="color: #fff">Sobre pagos en línea</span>
+							<p class="discount-code">Utilice Code: CODEPROMOCION_2021</p>
+
 						</div>
 					</div>
 					<div class="item-slide">
 						<img src="{{ asset('https://argentina.agrofystatic.com/media/sliderhome/image/s/l/slides-fertec-enero-02.jpg?usewebp=true' ) }}" alt="" class="img-slide">
 						<div class="slide-info slide-3">
-							<h2 class="f-title" style="color: #fff">Great Range of <b>Exclusive Furniture Packages</b></h2>
-							<span class="f-subtitle" style="color: #fff">Exclusive Furniture Packages to Suit every need.</span>
-							<p class="sale-info" style="color: #fff">Stating at: <b class="price">$225.00</b></p>
-							<a href="#" class="btn-link">Shop Now</a>
+							<h2 class="f-title" style="color: #fff">Gran variedad de <b>paquetes de agroquimicos exclusivos</b></h2>
+							<span class="f-subtitle" style="color: #fff">Paquetes exclusivos para satisfacer todas las necesidades.</span>
+							<p class="sale-info" style="color: #fff">Productos desde : <b class="price">$26.00</b></p>
+							<a href="/shop" class="btn-link">Comprar Ahora</a>
 						</div>
 					</div>
 				</div>
@@ -30,21 +29,21 @@
 			<!--BANNER-->
 			<div class="wrap-banner style-twin-default">
 				<div class="banner-item">
-					<a href="#" class="link-banner banner-effect-1">
-						<figure><img src="{{ asset('assets/images/home-1-banner-1.jpg' ) }}" alt="" width="580" height="190"></figure>
+					<a href="/shop" class="link-banner banner-effect-1">
+						<figure><img src="{{ asset('img/img2.jpg' ) }}" alt="" width="580" height="190"></figure>
 					</a>
 				</div>
 				<div class="banner-item">
-					<a href="#" class="link-banner banner-effect-1">
-						<figure><img src="{{ asset('assets/images/home-1-banner-2.jpg' ) }}" alt="" width="580" height="190"></figure>
+					<a href="/shop" class="link-banner banner-effect-1">
+						<figure><img src="{{ asset('img/img1.jpg' ) }}" alt="" width="580" height="190"></figure>
 					</a>
 				</div>
 			</div>
 
 			<!--On Sale-->
 			<div class="wrap-show-advance-info-box style-1 has-countdown">
-				<h3 class="title-box">On Sale</h3>
-				<div class="wrap-countdown mercado-countdown" data-expire="2021/05/12 12:34:56"></div>
+				<h3 class="title-box">EN VENTA</h3>
+				<div class="wrap-countdown mercado-countdown" data-expire="2021/03/16 12:34:56"></div>
 				<div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container " data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}'>
 
                     @foreach($popular_products as $p_product)
@@ -57,11 +56,11 @@
 								<span class="flash-item sale-label">sale</span>
 							</div>
 							<div class="wrap-btn">
-								<a href="#" class="function-link">quick view</a>
+								<a  href="{{ route('product.details', ['slug'=>$p_product->slug]) }}" class="function-link">{{ $p_product->name }}</a>
 							</div>
 						</div>
 						<div class="product-info">
-                            <a src="{{ asset('assets/images/products') }}/{{ $p_product->image }}" class="product-name"><span>{{ $p_product->name }}</span></a>
+                            <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}" class="product-name"><span>{{ $p_product->name }}</span></a>
                             <div class="wrap-price"><span class="product-price">${{ $p_product->regular_price }}</span></div>
                         </div>
 					</div>
@@ -72,10 +71,10 @@
 
 			<!--Latest Products-->
 			<div class="wrap-show-advance-info-box style-1">
-				<h3 class="title-box">Latest Products</h3>
+				<h3 class="title-box">ÚLTIMOS PRODUCTOS</h3>
 				<div class="wrap-top-banner">
-					<a href="#" class="link-banner banner-effect-2">
-						<figure><img src="{{ asset('assets/images/digital-electronic-banner.jpg' ) }}" width="1170" height="240" alt=""></figure>
+					<a href="/shop" class="link-banner banner-effect-2">
+						<figure><img src="https://irp-cdn.multiscreensite.com/519cc0c7/DESKTOP/jpg/1380793-banner.jpg" width="1170" height="240" alt=""></figure>
 					</a>
 				</div>
 				<div class="wrap-products">
@@ -93,11 +92,11 @@
                                                     <span class="flash-item new-label">new</span>
                                                 </div>
                                                 <div class="wrap-btn">
-                                                    <a href="#" class="function-link">quick view</a>
+                                                    <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}" class="function-link">{{ $p_product->name }}</a>
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <a src="{{ asset('assets/images/products') }}/{{ $p_product->image }}" class="product-name"><span>{{ $p_product->name }}</span></a>
+                                                <a href="{{ route('product.details', ['slug'=>$p_product->slug]) }}"  class="product-name"><span>{{ $p_product->name }}</span></a>
                                                 <div class="wrap-price"><span class="product-price">${{ $p_product->regular_price }}</span></div>
                                             </div>
                                         </div>
@@ -111,10 +110,10 @@
 
 			<!--Product Categories-->
 			<div class="wrap-show-advance-info-box style-1">
-				<h3 class="title-box">Product Categories</h3>
+				<h3 class="title-box">CATEGORÍAS DE PRODUCTO</h3>
 				<div class="wrap-top-banner">
-					<a href="#" class="link-banner banner-effect-2">
-						<figure><img src="{{ asset('assets/images/fashion-accesories-banner.jpg' ) }}" width="1170" height="240" alt=""></figure>
+					<a href="/shop" class="link-banner banner-effect-2">
+						<figure><img src="https://irp-cdn.multiscreensite.com/519cc0c7/DESKTOP/jpg/1380794-banner-01.jpg" width="1170" height="240" alt=""></figure>
 					</a>
 				</div>
 				<div class="wrap-products">
@@ -144,12 +143,12 @@
                                                     <span class="flash-item bestseller-label">Bestseller</span>
                                                 </div> -->
                                                 <div class="wrap-btn">
-                                                    <a href="#" class="function-link">quick view</a>
+                                                    <a href="{{ route('product.details', ['slug'=>$producto->slug]) }}" class="function-link">{{ $producto->name }}</a>
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
+                                                <a href="{{ route('product.details', ['slug'=>$producto->slug]) }}" class="product-name"><span>{{ $producto->name }}</span></a>
+                                                <div class="wrap-price"><span class="product-price">{{ $producto->regular_price }}</span></div>
                                             </div>
                                         </div>
                                     @endforeach

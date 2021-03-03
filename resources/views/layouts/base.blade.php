@@ -44,7 +44,7 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+									<a title="Teléfono: (052) 424394" href="#" ><span class="icon label-before fa fa-mobile"></span>Teléfono: (052) 424394</a>
 								</li>
 							</ul>
 						</div>
@@ -114,22 +114,13 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="/" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="/" class="link-to-home"><img src="{{ asset('img/logo.png') }}" alt="mercado"></a>
 						</div>
 
 						<!-- Search -->
                         @livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							<div class="wrap-icon-section wishlist">
-								<a href="#" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true"></i>
-									<div class="left-info">
-										<span class="index">0 item</span>
-										<span class="title">WISHLIST</span>
-									</div>
-								</a>
-							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="/cart" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
@@ -192,32 +183,32 @@
 						<li class="fc-info-item">
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
+								<h4 class="fc-name">ENVÍO GRATIS</h4>
+								<p class="fc-desc">Gratis con pedido superior a $99</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<h4 class="fc-name">Garantía</h4>
+								<p class="fc-desc">30 días de devolución de dinero</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Safe Payment</h4>
-								<p class="fc-desc">Safe your online payment</p>
+								<h4 class="fc-name">Pago seguro</h4>
+								<p class="fc-desc">Su pago es seguro en línea</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-life-ring" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Online Suport</h4>
-								<p class="fc-desc">We Have Support 24/7</p>
+								<h4 class="fc-name">Soporte en línea</h4>
+								<p class="fc-desc">Nosotros tenemos soporte 24/7</p>
 							</div>
 
 						</li>
@@ -234,21 +225,21 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Contact Details</h3>
+								<h3 class="item-header">DETALLES DE CONTACTO</h3>
 								<div class="item-content">
 									<div class="wrap-contact-detail">
 										<ul>
 											<li>
 												<i class="fa fa-map-marker" aria-hidden="true"></i>
-												<p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United State USA</p>
+												<p class="contact-txt"> Prolongación Patricio Melendez 583 – Tacna </p>
 											</li>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+												<p class="contact-txt">(052) 424 394</p>
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
+												<p class="contact-txt">agrovid@torres.com</p>
 											</li>
 										</ul>
 									</div>
@@ -259,15 +250,26 @@
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Hot Line</h3>
+								<h3 class="item-header">LÍNEA DIRECTA</h3>
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
-										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+										<b class="phone-number">(052) 424 394</b>
 									</div>
 								</div>
 							</div>
 
+
+						</div>
+
+                        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+
+							<div class="wrap-footer-item">
+                                <div class="banner-item">
+                                    <a href="/shop" class="link-banner banner-effect-1">
+                                        <figure><img src="https://irp-cdn.multiscreensite.com/519cc0c7/DESKTOP/jpg/1380793-banner.jpg" width="100%" alt=""></figure>
+                                    </a>
+                                </div>
+							</div>
 
 						</div>
 
@@ -277,27 +279,10 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">We Using Safe Payments:</h3>
+								<h3 class="item-header">USAMOS PAGOS SEGUROS:</h3>
 								<div class="item-content">
 									<div class="wrap-list-item wrap-gallery">
 										<img src="{{ asset('assets/images/payment.png') }}" style="max-width: 260px;">
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Social network</h3>
-								<div class="item-content">
-									<div class="wrap-list-item social-network">
-										<ul>
-											<li><a href="#" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-										</ul>
 									</div>
 								</div>
 							</div>
@@ -308,7 +293,6 @@
 
 				<div class="wrap-back-link">
 					<div class="container">
-
 					</div>
 				</div>
 
@@ -317,7 +301,7 @@
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2020 Surfside Media. All rights reserved</p>
+						<p class="coppy-right-text">Copyright © 2021 AGROVIC TORRES todos los derechos reservados</p>
 					</div>
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
