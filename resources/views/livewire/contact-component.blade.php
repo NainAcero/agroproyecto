@@ -24,10 +24,10 @@
 									<label for="email">Email<span>*</span></label>
 									<input type="text" value="" id="email" name="email" >
 
-									<label for="phone">Number Phone</label>
+									<label for="phone">Teléfono</label>
 									<input type="text" value="" id="phone" name="phone" >
 
-									<label for="comment">Comment</label>
+									<label for="comment">Comentario</label>
 									<textarea name="comment" id="comment"></textarea>
 
 									<input type="submit" name="ok" value="Submit" >
