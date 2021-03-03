@@ -30,7 +30,7 @@
 									<label for="comment">Comentario</label>
 									<textarea name="comment" id="comment"></textarea>
 
-									<input type="submit" name="ok" value="Submit" >
+									<input type="submit" name="ok" value="Enviar" >
 
 								</form>
 							</div>
@@ -45,12 +45,12 @@
 										 data-map-style="2"
 										 data-saturation="-100"
 										 data-modify-coloring="false"
-										 data-title_maps="Kute themes"
-										 data-phone="088-465 9965 02"
-										 data-email="kutethemes@gmail.com"
-										 data-address="Z115 TP. Thai Nguyen"
-										 data-longitude="-0.120850"
-										 data-latitude="51.508742"
+										 data-title_maps="AGROVIC TORRES"
+										 data-phone="(052) 424 394"
+										 data-email="agrovid@torres.com"
+										 data-address="Prolongación Patricio Melendez 583 – Tacnan"
+										 data-longitude="-70.2493055"
+										 data-latitude="-18.007446"
 										 data-pin-icon=""
 										 data-zoom="16"
 										 data-map-type="ROADMAP"
