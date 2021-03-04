@@ -59,6 +59,9 @@
                                                         <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                                     </li>
                                                     <li class="menu-item" >
+                                                        <a title="contacto" href="{{ route('admin.contacto') }}">Mensajes</a>
+                                                    </li>
+                                                    <li class="menu-item" >
                                                         <a title="Categoria" href="{{ route('admin.categoria') }}">Categoria</a>
                                                     </li>
                                                     <li class="menu-item" >
@@ -66,6 +69,9 @@
                                                     </li>
                                                     <li class="menu-item" >
                                                         <a title="Productos" href="{{ route('admin.proveedor') }}">Proveedor</a>
+                                                    </li>
+                                                    <li class="menu-item" >
+                                                        <a title="Productos" href="{{ route('admin.descuento.index') }}">Descuentos</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
@@ -124,7 +130,7 @@
                                         @if(Cart::count() > 0)
                                             <span class="index">{{ Cart::count() }} item</span>
                                         @endif
-										<span class="title">CART</span>
+										<span class="title">CARRITO</span>
 									</div>
 								</a>
 							</div>

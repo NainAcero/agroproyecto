@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Factura;
 use App\Models\DetalleFactura;
+use Illuminate\Support\Facades\Auth;
 
 class FacturaController extends Controller
 {
@@ -15,29 +16,8 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturas = Factura::orderBy('created_at', 'DESC')->get();
+        $facturas = Factura::where('user_id',Auth::user()->id)->orderBy('created_at', 'DESC')->get();
         return view('livewire.user.factura', ["facturas" => $facturas]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -65,40 +45,6 @@ class FacturaController extends Controller
             "factura" => $factura,
             "desc" => $desc
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
 

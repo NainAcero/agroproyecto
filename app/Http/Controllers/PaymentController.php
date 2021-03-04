@@ -18,6 +18,8 @@ use App\Models\Producto;
 use App\Models\DetalleFactura;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 
 class PaymentController extends Controller
@@ -132,6 +134,8 @@ class PaymentController extends Controller
                 "historial_id" => $id
             ]);
 
+            $html = "<br>";
+
             foreach(Cart::content() as $item){
 
                 DetalleFactura::create([
@@ -146,8 +150,16 @@ class PaymentController extends Controller
                 $producto = Producto::where('id', $item->model->id)->first();
                 $producto->quantity = $producto->quantity - $item->qty;
                 $producto->save();
+                $html = $html .  "<b>Producto : </b>" . $item->model->name . "<b> Cantidad : </b>" .  $item->qty . "<b> Precio : </b>" . $item->model->regular_price . " <br>";
 
             }
+            $details = [
+                'titulo' => "PAGO REALIZADO CON ÉXITO",
+                'descripcion' => "Pago de " . Cart::total() . " realizado , gracias por su compra <br> " . $html,
+                'email' => $request->email
+            ];
+            Mail::to(Auth::user()->email)->send(new TestMail($details));
+
             Cart::destroy();
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             return redirect('/user/dashboard')->with(compact('status'));

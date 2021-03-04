@@ -14,21 +14,26 @@
 				<div class=" main-content-area">
 					<div class="wrap-contacts ">
 						<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                            @if (session('notification'))
+                                <div class="alert alert-success">
+                                    <strong>Success</strong> {{ session('notification') }}
+                                </div>
+                            @endif
 							<div class="contact-box contact-form">
 								<h2 class="box-title">DEJANOS UN MENSAJE</h2>
-								<form action="#" method="get" name="frm-contact">
-
+								<form action="{{ route('mensaje') }}" method="POST" name="frm-contact">
+                                    @csrf
 									<label for="name">Name<span>*</span></label>
 									<input type="text" value="" id="name" name="name" >
 
 									<label for="email">Email<span>*</span></label>
-									<input type="text" value="" id="email" name="email" >
+									<input type="email" value="" id="email" name="email" >
 
 									<label for="phone">Teléfono</label>
-									<input type="text" value="" id="phone" name="phone" >
+									<input type="text" value="" id="phone" name="telefono" >
 
-									<label for="comment">Comentario</label>
-									<textarea name="comment" id="comment"></textarea>
+									<label for="comentario">Comentario</label>
+									<textarea name="comentario" id="comentario"></textarea>
 
 									<input type="submit" name="ok" value="Enviar" >
 

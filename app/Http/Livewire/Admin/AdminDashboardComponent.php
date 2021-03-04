@@ -11,7 +11,7 @@ class AdminDashboardComponent extends Component
 {
     public function render()
     {
-        $facturas = Factura::all();
+        $facturas = Factura::orderBy('created_at', 'DESC')->get();
         $productos = Producto::where('productos.quantity', '>', 0)->get();
         $usuarios = User::where('utype', 'USR')->get();
 
