@@ -154,18 +154,76 @@
 								<li class="menu-item home-icon">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
-								<li class="menu-item">
-									<a href="/about" class="link-term mercado-item-title">Sobre nosotros</a>
-								</li>
-								<li class="menu-item">
-									<a href="/shop" class="link-term mercado-item-title" >Tienda</a>
-								</li>
-								<li class="menu-item">
-									<a href="/cart" class="link-term mercado-item-title">Carrito</a>
-								</li>
-								<li class="menu-item">
-									<a href="/contact" class="link-term mercado-item-title">Contactos</a>
-								</li>
+								@auth
+                                     @if(Auth::user()->utype === 'ADM')
+
+                                        <li class="menu-item" >
+                                            <a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="contacto" href="{{ route('admin.contacto') }}">Mensajes</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Categoria" href="{{ route('admin.categoria') }}">Categoria</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Productos" href="{{ route('admin.producto') }}">Producto</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Productos" href="{{ route('admin.proveedor') }}">Proveedor</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Productos" href="{{ route('admin.descuento.index') }}">Descuentos</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+                                        </li>
+
+                                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                        </form>
+                                    @else
+                            			<li class="menu-item">
+											<a href="/about" class="link-term mercado-item-title">Sobre nosotros</a>
+										</li>
+										<li class="menu-item">
+											<a href="/shop" class="link-term mercado-item-title" >Tienda</a>
+										</li>
+										<li class="menu-item">
+											<a href="/cart" class="link-term mercado-item-title">Carrito</a>
+										</li>
+										<li class="menu-item">
+											<a href="/contact" class="link-term mercado-item-title">Contactos</a>
+										</li>
+                                        <li class="menu-item" >
+                                            <a title="Dashboard" href="{{ route('user.dashboard') }}">Compra</a>
+                                        </li>
+                                        <li class="menu-item" >
+                                            <a title="Factura" href="{{ route('factura.index') }}">Factura</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Logout</a>
+                                        </li>
+                                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                        </form>
+                                    @endif
+                                @else
+	                                <li class="menu-item">
+										<a href="/about" class="link-term mercado-item-title">Sobre nosotros</a>
+									</li>
+									<li class="menu-item">
+										<a href="/shop" class="link-term mercado-item-title" >Tienda</a>
+									</li>
+									<li class="menu-item">
+										<a href="/cart" class="link-term mercado-item-title">Carrito</a>
+									</li>
+									<li class="menu-item">
+										<a href="/contact" class="link-term mercado-item-title">Contactos</a>
+									</li>
+                                @endif
 							</ul>
 						</div>
 					</div>
