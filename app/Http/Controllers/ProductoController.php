@@ -77,7 +77,6 @@ class ProductoController extends Controller
                 $producto->regular_price = $request->regular_price;
                 $producto->short_description = $request->short_description;
                 $producto->quantity = $request->quantity;
-                $producto->slug = Str::slug($request->name);
                 $producto->category_id = $request->category_id;
                 $producto->save();
 

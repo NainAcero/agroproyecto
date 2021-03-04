@@ -212,22 +212,30 @@ function ajaxGet(data){
 }
 
 function ajaxGetProducto(data){
+    console.log(data);
     if(data != null){
         var datos = "";
-        pname.value = data.data.name;
-        pprecio.value =  data.data.regular_price;
-        pdescription.value =  data.data.description;
-        short_description.value =  data.data.short_description;
-        pshu.value =  data.data.SKU;
-        pquantity.value =  data.data.quantity;
+        if(data.data != null){
+            pname.value = data.data.name;
+            pprecio.value =  data.data.regular_price;
+            pdescription.value =  data.data.description;
+            short_description.value =  data.data.short_description;
+            pshu.value =  data.data.SKU;
+            pquantity.value =  data.data.quantity;
+            pname.disabled = true;
+            pshu.disabled = true;
+        }
+
         datos += `<select name="category_id"  class="form-control" >`;
-        pname.disabled = true;
-        pshu.disabled = true;
         data.categories.forEach(dato => {
             console.log(dato);
-            (dato.id == data.data.category_id)?
+            if(data.data != null){
+                (dato.id == data.data.category_id)?
                 datos = datos + `<option value="${dato.id}" selected>${dato.name}</option>`:
                 datos = datos + `<option value="${dato.id}">${dato.name}</option>`;
+            }else{
+                datos = datos + `<option value="${dato.id}">${dato.name}</option>`;
+            }
         });
         datos += `</select>`;
         category_id.innerHTML = datos;
